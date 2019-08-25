@@ -1,0 +1,12 @@
+.avatar {
+    width: 50px;
+}
+p {
+    margin: 0 auto;
+}
+.windowBorder {
+    border: 1px solid aqua;
+    border-radius: 25px;
+    padding: 10px;
+
+}

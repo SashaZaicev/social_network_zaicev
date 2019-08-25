@@ -1,0 +1,28 @@
+.nav {
+    grid-area: n;
+    background-color: #2c3f50;
+    margin-right: 5px;
+    padding: 20px;
+}
+
+.item a {
+    color: white;
+    text-decoration: none;
+}
+.item a.friends {
+    font-size: 40px;
+}
+.item a.activeLink {
+    color: whitesmoke;
+    background: #3093e4;
+    width: 100%;
+}
+.friendsBlock {
+    text-align: center;
+}
+.sidesBar{
+    display: flex;
+}
+.sideBarBlock {
+    width: 50%;
+}

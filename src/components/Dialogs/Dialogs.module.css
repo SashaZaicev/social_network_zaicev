@@ -1,0 +1,41 @@
+.dialogs {
+    display: flex;
+
+}
+
+.h3 {
+    text-transform: uppercase;
+}
+
+.dialogsItems {
+    padding: 15px;
+
+}
+
+.user a.activeLink {
+    color: yellow;
+}
+.user {
+    display: flex;
+}
+.user a {
+    color: #606060;
+    text-decoration: none;
+}
+.userLogo img {
+    width: 20px;
+}
+
+.messages {
+
+    padding: 15px;
+}
+
+.message {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: snow;
+    margin: 5px 0px;
+    width: 200px;
+
+}

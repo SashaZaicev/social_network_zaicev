@@ -1,0 +1,36 @@
+import dialogPageReducer from "./dialogPageReducer";
+import imagesPageReducer from "./imagesPageReducer";
+import musicReducer from "./musicReducer";
+import profilePageReducer from "./profilePageReducer";
+import sideBarReducer from "./sideBarReducer";
+import usersReducer from "./usersPageReducer";
+
+//debugger;
+let store = {
+    _state: {
+        dialogPage: dialogPageReducer(undefined, {type: 'initAction'}),
+        imagesPage: imagesPageReducer(undefined, {type: 'initAction'}),
+        music: musicReducer(undefined, {type: 'initAction'}),
+        profilePage: profilePageReducer(undefined, {type: 'initAction'}),
+        sideBar: sideBarReducer(undefined, {type: 'initAction'}),
+        usersPage: usersReducer(undefined, {type: 'initAction'}),
+    },
+    // getState() {
+    //     return this._state;
+    // },
+    // _onChangeState() {},
+    // subscribe(outerFn) {
+    //     this._onChangeState = outerFn;
+    // },
+    // dispatch(action) {
+    //     this._state.dialogPage = dialogPageReducer(this._state.dialogPage, action);
+    //     this._state.imagesPage = imagesPageReducer(this._state.imagesPage, action);
+    //     this._state.music = musicReducer(this._state.music, action);
+    //     this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+    //     this._state.sideBar = sideBarReducer(this._state.sideBar, action);
+    //
+    //     this._onChangeState();
+    // },
+};
+
+export default store;
