@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import {AddPostFormRedux} from "./MyPostForm";
 // import {addCommentAC, updatePostAC} from "../../../redux/profilePageReducer";
 // import {connect} from "react-redux";
 // import {addMessage} from "../../../redux/State";
@@ -29,12 +30,14 @@ const MyPosts = (props) => {
     //     dispatch(actionObj);
     //     newPostElement.current.value = '';
     // }
-
+const addNewPost = (value) => {
+    props.addPost(value.newMessage)
+}
     return (
         <div className={s.myPosts}>
             <h4>My posts</h4>
             <div>
-                <div>
+                {/*<div>
                     <textarea ref={newPostElement}
                               className={s.textareaSize}
                               value={props.newMessage}
@@ -44,8 +47,8 @@ const MyPosts = (props) => {
                 </div>
                 <div>
                     <button onClick= {() => {props.addPost(newPostElement.current.value)}} >Add post</button>
-                </div>
-
+                </div>*/}
+                <AddPostFormRedux onSubmit={addNewPost}/>
             </div>
             <div className={s.posts}>
                 {postItem}

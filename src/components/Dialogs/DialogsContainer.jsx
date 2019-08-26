@@ -13,8 +13,8 @@ const mstp = (state) => ({
     // isAuth: state.auth.isAuth
 })
 const mdtp = (dispatch) => ({
-    addPost2: (newMessageElement) =>
-        dispatch(addMessageAC(newMessageElement)),
+    addPost2: (newComment) =>
+        dispatch(addMessageAC(newComment)),
     updateComment: (text) =>
         dispatch(updateCommentAC(text))
 })

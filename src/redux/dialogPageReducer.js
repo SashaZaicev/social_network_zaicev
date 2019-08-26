@@ -22,7 +22,7 @@ let initState = {
                 'necessitatibus perspiciatis possimus recusandae rem tempora veniam?'
         },
     ],
-    newComment: "",
+    // newComment: "",
 }
 
 let dialogPageReducer = (_state = initState, action) => {
@@ -33,14 +33,14 @@ let dialogPageReducer = (_state = initState, action) => {
             // if (_state.dialogPage.newComment.trim()) {
             let newMsg = {
                 id: 5,
-                name: _state.newComment,
+                name: action.newComment,
             }
             /*Подробно
             let copyState = {..._state};
             copyState.messagesData = [newMsg, ..._state.messagesData];
             copyState.newComment = '';
             return copyState;*/
-            return {..._state,  messagesData: [newMsg, ..._state.messagesData], newComment:''};
+            return {..._state,  messagesData: [newMsg, ..._state.messagesData]};
         case UPDATE_NEW_COMMENT:
             return {..._state, newComment: action.text}
         default:
@@ -48,8 +48,8 @@ let dialogPageReducer = (_state = initState, action) => {
     }
 }
 
-export const addMessageAC = (commentText) => (
-    {type: ADD_COMMENT, newComment: commentText}
+export const addMessageAC = (newComment) => (
+    {type: ADD_COMMENT, newComment: newComment}
 );
 export const updateCommentAC = (text) => (
 {type: UPDATE_NEW_COMMENT, text: text}

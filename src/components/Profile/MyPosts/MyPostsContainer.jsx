@@ -12,7 +12,7 @@ const mstp = (state) => ({
     newMessage: state.profilePage.newMessage
 })
 const mdtp = (dispatch) => ({
-    addPost: (newPostElement) => dispatch(addCommentAC(newPostElement)),
+    addPost: (newMessage) => dispatch(addCommentAC(newMessage)),
     updatePost: (textPost) => dispatch(updatePostAC(textPost))
 
 })
