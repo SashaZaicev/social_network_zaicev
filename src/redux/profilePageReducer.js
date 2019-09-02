@@ -48,7 +48,11 @@ let profilePageReducer = (_state = initState, action) => {
             // copyState.messagesList = [newPost, ..._state.messagesList];
             // copyState.newMessage = '';
             // return copyState
+<<<<<<< HEAD
             return {..._state, messagesList: [newPost, ..._state.messagesList]};
+=======
+            return {..._state, messagesList: [newPost, ..._state.messagesList], newMessage: ''};
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
         case UPDATE_NEW_MESSAGE:
             return {..._state, newMessage: action.textPost}
         case SET_STATUS:
@@ -59,8 +63,13 @@ let profilePageReducer = (_state = initState, action) => {
             return _state;
     }
 };
+<<<<<<< HEAD
 export const addCommentAC = (newMessage) => (
     {type: ADD_MESSAGE, newMessage: newMessage}
+=======
+export const addCommentAC = (comment) => (
+    {type: ADD_MESSAGE, newMessage: comment}
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
 );
 export const updatePostAC = (textPost) => (
     {type: UPDATE_NEW_MESSAGE, textPost: textPost}

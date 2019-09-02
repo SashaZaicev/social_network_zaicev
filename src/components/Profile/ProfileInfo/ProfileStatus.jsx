@@ -4,7 +4,11 @@ import s from './ProfileInfo.module.css';
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
+<<<<<<< HEAD
         status: this.props.status,
+=======
+        // status: this.props.status,
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
     }
     activateEditMode = () => {
         this.setState({
@@ -21,6 +25,7 @@ class ProfileStatus extends React.Component {
     onStatusChange = (e) => {
 this.setState({status: e.currentTarget.value})
     };
+<<<<<<< HEAD
 componentDidUpdate(prevProps, prevState) {
     // debugger
     if (prevProps.status !== this.props.status ) {
@@ -28,6 +33,9 @@ componentDidUpdate(prevProps, prevState) {
             status: this.props.status
         })
     }
+=======
+componentDidMount() {
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
     console.log('component render')
 }
 

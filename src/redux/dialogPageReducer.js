@@ -22,7 +22,11 @@ let initState = {
                 'necessitatibus perspiciatis possimus recusandae rem tempora veniam?'
         },
     ],
+<<<<<<< HEAD
     // newComment: "",
+=======
+    newComment: "",
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
 }
 
 let dialogPageReducer = (_state = initState, action) => {
@@ -33,14 +37,22 @@ let dialogPageReducer = (_state = initState, action) => {
             // if (_state.dialogPage.newComment.trim()) {
             let newMsg = {
                 id: 5,
+<<<<<<< HEAD
                 name: action.newComment,
+=======
+                name: _state.newComment,
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
             }
             /*Подробно
             let copyState = {..._state};
             copyState.messagesData = [newMsg, ..._state.messagesData];
             copyState.newComment = '';
             return copyState;*/
+<<<<<<< HEAD
             return {..._state,  messagesData: [newMsg, ..._state.messagesData]};
+=======
+            return {..._state,  messagesData: [newMsg, ..._state.messagesData], newComment:''};
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
         case UPDATE_NEW_COMMENT:
             return {..._state, newComment: action.text}
         default:
@@ -48,8 +60,13 @@ let dialogPageReducer = (_state = initState, action) => {
     }
 }
 
+<<<<<<< HEAD
 export const addMessageAC = (newComment) => (
     {type: ADD_COMMENT, newComment: newComment}
+=======
+export const addMessageAC = (commentText) => (
+    {type: ADD_COMMENT, newComment: commentText}
+>>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
 );
 export const updateCommentAC = (text) => (
 {type: UPDATE_NEW_COMMENT, text: text}
