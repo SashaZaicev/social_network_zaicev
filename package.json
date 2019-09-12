@@ -12,10 +12,7 @@
     "react-router-dom": "latest",
     "react-scripts": "3.0.1",
     "redux": "latest",
-<<<<<<< HEAD
     "redux-form": "^8.2.6",
-=======
->>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

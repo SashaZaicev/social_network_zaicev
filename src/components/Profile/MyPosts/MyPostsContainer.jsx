@@ -12,11 +12,7 @@ const mstp = (state) => ({
     newMessage: state.profilePage.newMessage
 })
 const mdtp = (dispatch) => ({
-<<<<<<< HEAD
     addPost: (newMessage) => dispatch(addCommentAC(newMessage)),
-=======
-    addPost: (newPostElement) => dispatch(addCommentAC(newPostElement)),
->>>>>>> e91ac68bd2d2a53d9e6e6c5aed414e5f5316a5d5
     updatePost: (textPost) => dispatch(updatePostAC(textPost))
 
 })
