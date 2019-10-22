@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink, Redirect} from "react-router-dom";
-import {AddMessageFormRedux} from "./DialogForm";
+import {AddDialogForm, AddMessageFormRedux} from "./DialogForm";
 // import {addCommentAC} from "../../redux/profilePageReducer";
 // import {addMessageAC, updateCommentAC} from "../../redux/dialogPageReducer";
 // import {connect} from "react-redux";

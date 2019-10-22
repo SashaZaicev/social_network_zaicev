@@ -1,18 +1,15 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../Common/FormsControls/FormsControls";
+
+let maxLength10=maxLengthCreator(10);
 
 const AddPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component='textarea' name='newMessage' placeholder='Enter your post'/>
-                  {/*  <textarea ref={newMessageElement}
-                              className={s.textareaSize}
-                              onChange={(e) => {
-                                  props.updateComment(e.currentTarget.value)
-                              }}
-                              value={props.newComment}
-                    />*/}
+                <Field component={Textarea} name='newMessage' validate={[required, maxLength10]} placeholder='Enter your post'/>
             </div>
             <div>
                 <button>Add post</button>
