@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "react-hot-loader": "^4.5.3"
+    "react-hot-loader": "^4.5.3",
+    "gh-pages": "^2.1.1"
   }
 }
