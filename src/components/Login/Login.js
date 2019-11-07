@@ -34,7 +34,7 @@ let mstp = (state) => ({
 })
 let mdtp = (dispatch) => ({
     login: (log, password, rememberMe) => {
-        dispatch(login(log, password, rememberMe))
+        dispatch(login(login, password, rememberMe))
     },
 })
 
