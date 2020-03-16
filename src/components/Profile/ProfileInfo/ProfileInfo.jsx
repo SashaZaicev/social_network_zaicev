@@ -32,7 +32,7 @@ return (
                     alt='nature' className={s.imgBack}/>
             </div>
             <div className={s.description}>
-               <div><img src={foto}/>
+               <div><img className={s.fotoProfile} src={foto}/>
                    <div>{props.profile.fullName}</div>
                    <div>{props.profile.lookingForAJob}</div>
                </div>

@@ -13,10 +13,10 @@ export let FormControl = ({input, child, meta, ...props}) => {
     )
 }
 export let Textarea = (props) => {
-    let {input, child, meta, restProps} = props
+    let {input, meta, child, ...restProps} = props
     return <FormControl {...props}><textarea {...input}{...restProps}/></FormControl>
 }
 export let Input = (props) => {
-    let {input, child, meta, restProps} = props
-    return <FormControl {...props}><input {...input}{...restProps}/></FormControl>
+    let {input, meta, child, ...restProps} = props
+    return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 }

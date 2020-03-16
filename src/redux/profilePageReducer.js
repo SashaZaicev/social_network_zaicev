@@ -33,6 +33,7 @@ let initState = {
             education: "sportsman",
             webSite: '',
             dateBirth: '25.12.85',
+
         }
     ],
 }

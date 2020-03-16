@@ -1,42 +1,25 @@
-import React from 'react';
+import React from 'react'
+import {login} from "../../redux/auth-reducer";
+import {Redirect} from "react-router";
 import {connect} from "react-redux";
-import {login, statuses} from "../../redux/loginReducer";
+import {LoginReduxForm} from "./LoginForm";
 
-const Login = ({status, login, message}) => {
 
-    let loginRef = React.createRef();
-    let passwordRef = React.createRef();
-    let rememberMeRef = React.createRef();
-
-    const onLoginClick = () => {
-        // debugger
-        login && login(loginRef.current.value, passwordRef.current.value,
-            rememberMeRef.current.checked)
+const Login = (props) => {
+    const onSubmit = (formData) => {
+        props.login(formData.email, formData.password, formData.rememberMe)
+    };
+    if (props.isAuth) {
+        return <Redirect to={'/profile'}/>
     }
-    let errorMessageBlock = status === statuses.ERROR &&
-        <div className='error'>{message}</div>
-
-    return <div>
-        <div><input ref={loginRef} type="text" defaultValue='sasha.zaitsau@gmail.com'/></div>
-        <div><input ref={passwordRef} type="password" defaultValue='167289'/></div>
-        <div><input ref={rememberMeRef} type="checkbox"/></div>
+    return (
         <div>
-            <button disabled={status === statuses.INPROGRESS} onClick={onLoginClick}>Login</button>
-        </div>
-        {errorMessageBlock}
-    </div>
+            < h1> Login </h1>
+            <LoginReduxForm onSubmit={onSubmit}/>
+        </div>)
 }
-let mstp = (state) => ({
-    // isAuth: state.auth.isAuth,
-    status: state.login.status,
-    message: state.login.message,
-    captchaUrl: state.login.captchaUrl,
-})
-let mdtp = (dispatch) => ({
-    login: (log, password, rememberMe) => {
-        dispatch(login(login, password, rememberMe))
-    },
+const mstp = (state) => ({
+    isAuth: state.auth.isAuth
 })
 
-
-export default connect(mstp, mdtp)(Login);
+export default connect(mstp, {login})(Login);

@@ -11,17 +11,21 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 2;
+            userId = this.props.autorizedUserId;
+            if (!userId) {
+                this.props.history.push("/login")
+            }
         }
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
     }
+
     render() {
         return (
             <div>
                 <Profile {...this.props}
                          profile={this.props.profilePage}
-                        status={this.props.status}
+                         status={this.props.status}
                          updateStatus={this.props.updateStatus}
                 />
             </div>)
@@ -37,7 +41,8 @@ class ProfileContainer extends React.Component {
 
 const mstp = (state) => ({
     profilePage: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    autorizedUserId: state.auth.userId,
 });
 
 // let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)

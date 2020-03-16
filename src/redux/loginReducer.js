@@ -21,7 +21,7 @@ export const setMessage = (message) => ({
 type: SET_MESSAGE, message
 })
 
-export const login = (login, password, rememberMe, capctha) => (d) => {
+export const login = (login, password, rememberMe) => (d) => {
     d(setStatus(statuses.INPROGRESS))
     axios.post('auth/login', {
         email: login,

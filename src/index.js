@@ -15,7 +15,8 @@ import imagesPageReducer from "./redux/imagesPageReducer";
 import authReducer from "./redux/auth-reducer";
 import loginReducer from "./redux/loginReducer";
 import thunk from "redux-thunk";
-import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer } from 'redux-form'
+import appReducer from "./redux/app-reducer";
 
 let reducers = combineReducers({
     dialogPage: dialogPageReducer,
@@ -27,6 +28,7 @@ let reducers = combineReducers({
     auth: authReducer,
     login: loginReducer,
     form: formReducer,
+    app: appReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunk));

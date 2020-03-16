@@ -2,9 +2,6 @@ import React from 'react';
 import s from "./Users.module.css";
 import photoMan from "../../img/images/logoMan.png";
 import {NavLink} from "react-router-dom";
-import Preloader from "../Common/Preloader";
-import * as axios from "axios";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
 

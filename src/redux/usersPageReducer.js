@@ -1,4 +1,5 @@
 import {usersAPI} from "../api/api";
+import keys from "redux-form/lib/structure/immutable/keys";
 
 
 const SET_USER = "SN/USERSPAGE/SET_USERS";
@@ -38,7 +39,7 @@ const usersReducer = (_state = initState, action) => {
         case UNFOLLOW:
             return {
                 ..._state,
-                users: _state.users.map(u => {
+                users: _state.users.map( u => {
                     if (u.id === action.userID) {
                         return {...u, followed: false};
                     }
@@ -83,15 +84,16 @@ export const toggleIsFetching = (isFetching) => ({
 export const toggleFollowingProgress = (isFetching, userID) => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userID
 });
-export const getUsersThunkCreator = (currentPage, pageSize) => {
+export const getUsersThunkCreator = (page, pageSize) => {
     return (dispatch) => {
     dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(currentPage, pageSize)
+        usersAPI.getUsers(page, pageSize)
         .then((data) => {
+            console.log(data)
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount));
-            dispatch(setCurrentPage(currentPage));
+            dispatch(setCurrentPage(page));
         });
 }};
 export const follow = (userId) => {
