@@ -18,7 +18,6 @@ const DialogItem = (props) => {
     </div>
 }
 const Messages = (props) => {
-    // debugger;
     return (<div className={s.message}>
         {props.name}
 

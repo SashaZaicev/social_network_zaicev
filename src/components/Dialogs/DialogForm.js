@@ -6,7 +6,6 @@ import {Textarea} from "../Common/FormsControls/FormsControls";
 let maxLength50=maxLengthCreator(50);
 
 export const AddDialogForm = (props) => {
-debugger
     return (
         <form onSubmit={props.handleSubmit}>
             <div>

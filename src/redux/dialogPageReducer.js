@@ -26,8 +26,6 @@ let initState = {
 }
 
 let dialogPageReducer = (_state = initState, action) => {
-    // debugger;
-    // console.log()
     switch (action.type) {
         case ADD_COMMENT:
             // if (_state.dialogPage.newComment.trim()) {

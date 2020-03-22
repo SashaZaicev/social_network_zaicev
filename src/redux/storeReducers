@@ -5,7 +5,6 @@ import profilePageReducer from "./profilePageReducer";
 import sideBarReducer from "./sideBarReducer";
 import usersReducer from "./usersPageReducer";
 
-//debugger;
 let store = {
     _state: {
         dialogPage: dialogPageReducer(undefined, {type: 'initAction'}),

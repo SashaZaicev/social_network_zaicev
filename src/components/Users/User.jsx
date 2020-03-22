@@ -3,25 +3,10 @@ import s from "./Users.module.css";
 import photoMan from "../../img/images/logoMan.png";
 import {NavLink} from "react-router-dom";
 
-let Users = (props) => {
+let User = ({user, followingInProgress, unfollow, follow}) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
 
     return <div>
-        <div>
-            {pages.map(p => {
-                // debugger
-                return <span className={props.currentPage === p && `${s.selectedPage}`}
-                             onClick={() => props.onPageChanged(p)}>{p} </span>
-            })}
-        </div>
-        {
-            props.users.map(user => <div key={user.id}>
                     <span>
                         <div>
                              <NavLink to={'/profile/' + user.id}>
@@ -31,18 +16,18 @@ let Users = (props) => {
                         </div>
                     <div>
                         {user.followed
-                            ? <button disabled={props.followingInProgress.some(id => id === user.id)}
+                            ? <button disabled={followingInProgress.some(id => id === user.id)}
                                       onClick={() => {
-                                          props.unfollow(user.id)
+                                          unfollow(user.id)
                                       }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress
+                            : <button disabled={followingInProgress
                                 .some(id => id === user.id)}
                                       onClick={() => {
-                                          props.follow(user.id)
+                                          follow(user.id)
                                       }}>Follow</button>}
                     </div>
                     </span>
-                    <span>
+        <span>
                         <span>
                             <div>{user.name}</div>
                             <div>{user.status}</div>
@@ -52,9 +37,6 @@ let Users = (props) => {
                             <div>{'user.location.city'}</div>
                         </span>
                     </span>
-                    {/*<div> {user.status || status}</div>*/}
-                </div>
-            )}
     </div>
 }
-export default Users;
+export default User;

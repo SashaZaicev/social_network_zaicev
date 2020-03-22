@@ -15,7 +15,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import LoginPage from "./components/Login/Login";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import Preloader from "./components/Common/Preloader";
+import Preloader from "./components/Common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
 
 

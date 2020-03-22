@@ -8,7 +8,6 @@ import {AddPostFormRedux} from "./MyPostForm";
 
 
 const MyPosts = (props) => {
-    // debugger;
     // let {messagesList,newMessage} = messagesList
     let newPostElement = React.createRef();
     let postItem = props.myPost.messagesList.map((m) => <Post message={m.message} likeCount={m.likeCount}/>);
@@ -18,13 +17,11 @@ const MyPosts = (props) => {
     //     newPostElement.current.value = " ";
     // }
     // let addMessage = () => {
-    //     // debugger;
     //     let text = newPostElement.current.value;
     //     let action = {type: 'UPDATE-NEW-MESSAGE', text: text};
     //     dispatch(action);
     // }
     // let addPost = () => {
-    //     // debugger;
     //     let comment = newPostElement.current.value;
     //     let actionObj = addCommentAC(comment);
     //     dispatch(actionObj);

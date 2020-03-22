@@ -6,7 +6,6 @@ import {addImageAC} from "../../redux/imagesPageReducer";
 import { connect } from 'react-redux';
 
 const Img = (props) => {
-    // debugger;
 // let {startImgText,addImgUrl }= imagesPage
 //     let img = (url)=>{
 //         let actionObj = addImageAC(url);
@@ -14,7 +13,6 @@ const Img = (props) => {
 //     }
 
     let url = React.createRef();
-   // // debugger;
    //  let imgPage = startImgText;
    //  let images = null;
    //  if(!!addImgUrl){

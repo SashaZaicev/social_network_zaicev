@@ -12,7 +12,6 @@ let initialState = {
 
 
 const appReducer = (state = initialState, action) => {
-    // debugger;
     switch (action.type) {
         case INITIALIZED_SUCCESS:
             return {
@@ -27,12 +26,10 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccess = () => ({
     type: INITIALIZED_SUCCESS
 });
-export const initializeApp = () => (dispatch) => {
+export const initializeApp = () => async (dispatch) => {
     let promise = dispatch(getAuthUserData())
-    Promise.all([promise])
-        .then(() => {
-            dispatch(initializedSuccess())
-        })
+    await Promise.all([promise])
+    dispatch(initializedSuccess())
 };
 
 export default appReducer;

@@ -7,7 +7,7 @@ import {
     toggleFollowingProgress, getUsersThunkCreator,
 } from '../../redux/usersPageReducer';
 import Users from './Users';
-import Preloader from "../Common/Preloader";
+import Preloader from "../Common/Preloader/Preloader";
 import {compose} from "redux";
 import {
     getCurrentPage,
@@ -28,7 +28,6 @@ class UsersContainer extends React.Component {
     };
 
     render() {
-        // debugger
         return <>
             {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount}

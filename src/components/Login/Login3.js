@@ -9,7 +9,6 @@ const Login2 = ({status, login, message}) => {
     let rememberMeRef = React.createRef();
 
     const onLoginClick = () => {
-        // debugger
         login && login(loginRef.current.value, passwordRef.current.value,
             rememberMeRef.current.checked)
     }

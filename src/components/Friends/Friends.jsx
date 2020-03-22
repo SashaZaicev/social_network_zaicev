@@ -8,7 +8,6 @@ const Friend = (props) => {
 }
 
 const Friends =(props)=>{
-   // debugger;
     // let {friends} = props.friends.friendsName
     let friendItem = props.friends.map((m)=><Friend friendName={m.friendName}/>)
    /* Тянем из props массив, с помощью метода map, перебираем его*/

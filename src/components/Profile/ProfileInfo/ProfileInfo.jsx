@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 // import {connect} from "react-redux";
-import Preloader from "../../Common/Preloader";
+import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from './ProfileStatus'
 import photoMan from '../../../img/images/logoMan.png'
 

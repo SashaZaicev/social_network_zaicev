@@ -7,7 +7,6 @@ import styleError from "../Common/FormsControls/FormsControls.module.css"
 let maxLength30 = maxLengthCreator(30)
 let maxLength16 = maxLengthCreator(16)
 const LoginForm = (props) => {
-    // debugger
     return (
         <form onSubmit={props.handleSubmit}>
             <div>

@@ -13,9 +13,6 @@ const SideBar = (props) => {
 }
 
 const Navbar = ({sideBar}) => {
-    // debugger;
-    let sideBars = sideBar.friends.map((el) => <SideBar key={el.id} name={el.name} logo={el.logo}/>)
-
     return <nav className={`${s.nav}`}>
         <div className={`${s.item}`}>
             <NavLink to='/profile' activeClassName={`${s.activeLink}`}>Profile</NavLink>

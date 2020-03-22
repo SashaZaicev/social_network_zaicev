@@ -12,7 +12,6 @@ let initState = {
 let imagesPageReducer = (_state = initState, action) => {
 
 
-// debugger;
     switch (action.type) {
 
         case ADD_IMAGE:
