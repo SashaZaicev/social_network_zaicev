@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import sideBarReducer from "./redux/sideBarReducer";
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import usersPageReducer from "./redux/usersPageReducer";
 import dialogPageReducer from "./redux/dialogPageReducer";
 import profilePageReducer from "./redux/profilePageReducer";
@@ -30,9 +30,11 @@ let reducers = combineReducers({
     form: formReducer,
     app: appReducer,
 });
-
-let store = createStore(reducers, applyMiddleware(thunk));
-window.store = store;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers,composeEnhancers(applyMiddleware(thunk)
+));
+// let store = createStore(reducers, applyMiddleware(thunk));
+window.__store__ = store;
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

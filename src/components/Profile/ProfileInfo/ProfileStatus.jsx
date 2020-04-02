@@ -27,11 +27,11 @@ componentDidUpdate(prevProps, prevState) {
             status: this.props.status
         })
     }
-    console.log('component render')
+    // console.log('component render')
 }
 
     render() {
-    console.log('render');
+    // console.log('render');
         return (
             <div>
                 {!this.state.editMode &&
