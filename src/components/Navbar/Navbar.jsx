@@ -42,7 +42,7 @@ const Navbar = ({sideBar}) => {
             <NavLink to='/friends' activeClassName={`${s.activeLink}`} className={`${s.friends}`}>Friends</NavLink>
             <div className={`${s.sidesBar}`}>{sideBars}</div>
         </div>
-
+        <div className={`${s.blockAboutMe}`}><a target='_blank' rel="noopener noreferrer" href="https://sashazaicev.github.io/portfolio-zaicev/">My portfolio</a></div>
     </nav>
 }
 

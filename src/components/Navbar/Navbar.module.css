@@ -9,20 +9,34 @@
     color: white;
     text-decoration: none;
 }
+
+.blockAboutMe {
+    text-align: center;
+}
+
+.blockAboutMe a {
+    color: gold;
+    text-decoration: none;
+}
+
 .item a.friends {
     font-size: 40px;
 }
+
 .item a.activeLink {
     color: whitesmoke;
     background: #3093e4;
     width: 100%;
 }
+
 .friendsBlock {
     text-align: center;
 }
-.sidesBar{
+
+.sidesBar {
     display: flex;
 }
+
 .sideBarBlock {
     width: 50%;
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import sideBarReducer from "./redux/sideBarReducer";
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
@@ -37,9 +37,9 @@ const store = createStore(reducers,composeEnhancers(applyMiddleware(thunk)
 window.__store__ = store;
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <App/>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>
     , document.getElementById('root'));
 
