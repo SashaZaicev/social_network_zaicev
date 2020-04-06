@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "770868bd3983dbcaf0125b93be501908",
+    "revision": "74ecc1ea86d5246618a6f8bdfa2bce4b",
     "url": "/social_network_zaicev/index.html"
   },
   {
@@ -8,32 +8,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social_network_zaicev/static/css/3.8c071531.chunk.css"
   },
   {
-    "revision": "3e15a100dbd81d216110",
+    "revision": "3c1c5d68044b8dd3812a",
     "url": "/social_network_zaicev/static/css/4.4dfa95b4.chunk.css"
   },
   {
-    "revision": "0c422be39e0e571622b2",
+    "revision": "e29a9f88dade513b8b6b",
     "url": "/social_network_zaicev/static/css/main.de44b117.chunk.css"
   },
   {
-    "revision": "b477fb7208e4ada7b8b7",
-    "url": "/social_network_zaicev/static/js/2.47cf518a.chunk.js"
+    "revision": "49eb9f9a282eaf61aa31",
+    "url": "/social_network_zaicev/static/js/2.dff18719.chunk.js"
   },
   {
     "revision": "75e60680949aaa6d1538",
     "url": "/social_network_zaicev/static/js/3.e9da8ad5.chunk.js"
   },
   {
-    "revision": "3e15a100dbd81d216110",
-    "url": "/social_network_zaicev/static/js/4.28fa6ce9.chunk.js"
+    "revision": "3c1c5d68044b8dd3812a",
+    "url": "/social_network_zaicev/static/js/4.b679163b.chunk.js"
   },
   {
-    "revision": "0c422be39e0e571622b2",
-    "url": "/social_network_zaicev/static/js/main.bbe58007.chunk.js"
+    "revision": "e29a9f88dade513b8b6b",
+    "url": "/social_network_zaicev/static/js/main.24d7b9d9.chunk.js"
   },
   {
-    "revision": "9dc5538086b9fdb14fa6",
-    "url": "/social_network_zaicev/static/js/runtime~main.ac33e7fd.js"
+    "revision": "e81f608ab4e3e2ac1a60",
+    "url": "/social_network_zaicev/static/js/runtime~main.62564fa1.js"
   },
   {
     "revision": "e3873dc10a343b99d7dbf3d6779ea8bc",
