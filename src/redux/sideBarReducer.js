@@ -2,23 +2,26 @@
 import logo from "../img/logo.png";
 
 let initState = {
-        friends: [
-            {
-                logo: logo,
-                name: 'Yasha',
-            },
-            {
-                logo: logo,
-                name: 'Kenuri',
-            },
-            {
-                logo: logo,
-                name: 'Iokahiri',
-            },
-        ]
+    friends: [
+        {
+            id: 1,
+            logo: logo,
+            name: 'Yasha',
+        },
+        {
+            id: 2,
+            logo: logo,
+            name: 'Kenuri',
+        },
+        {
+            id: 3,
+            logo: logo,
+            name: 'Iokahiri',
+        },
+    ]
 }
 
-let sideBarReducer = (_state = initState, action)=> {
+let sideBarReducer = (_state = initState, action) => {
     switch (action.type) {
         default:
             return _state;

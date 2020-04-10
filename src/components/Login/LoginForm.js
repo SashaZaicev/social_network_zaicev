@@ -6,14 +6,14 @@ import styleError from "../Common/FormsControls/FormsControls.module.css"
 
 let maxLength30 = maxLengthCreator(30)
 let maxLength16 = maxLengthCreator(16)
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field validate={[required]}
-                        component={Input}
-                        placeholder={'Email'}
-                        name={'email'}/></div>
+                       component={Input}
+                       placeholder={'Email'}
+                       name={'email'}/></div>
             <div><Field validate={[required]}
                         component={Input}
                         placeholder={'Password'}
@@ -21,7 +21,11 @@ const LoginForm = (props) => {
                         type={'password'}/></div>
             <div><Field component={Input} name={"rememberMe"} type={"checkbox"}/>remember me
             </div>
-            {props.error && <div className={`${styleError.formSummaryError}`}>{props.error}</div>}
+            {error &&
+            <div className={`${styleError.formSummaryError}`}>
+                {error}
+            </div>
+            }
             <div>
                 <button type='submit'>LOGIN</button>
             </div>

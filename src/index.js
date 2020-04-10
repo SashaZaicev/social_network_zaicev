@@ -37,7 +37,7 @@ const store = createStore(reducers,composeEnhancers(applyMiddleware(thunk)
 window.__store__ = store;
 ReactDOM.render(
     <Provider store={store}>
-        <HashRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
             <App/>
         </HashRouter>
     </Provider>

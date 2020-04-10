@@ -10,7 +10,7 @@ import {AddPostFormRedux} from "./MyPostForm";
 const MyPosts = (props) => {
     // let {messagesList,newMessage} = messagesList
     let newPostElement = React.createRef();
-    let postItem = props.myPost.messagesList.map((m) => <Post message={m.message} likeCount={m.likeCount}/>);
+    let postItem = props.myPost.messagesList.map((m) => <Post key={m.id} message={m.message} likeCount={m.likeCount}/>);
 
     // let addPost = () => {
     //     dispatch({type: 'ADD-MESSAGE'});

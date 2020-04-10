@@ -1,9 +1,11 @@
 import {profileAPI, usersAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_MESSAGE = "SN/profilePageReducer/ADD_MESSAGE"
 const UPDATE_NEW_MESSAGE = "SN/profilePageReducer/UPDATE_NEW_MESSAGE"
 const SET_USER_PROFILE = "SN/profilePageReducer/SET_USER_PROFILE"
 const SET_STATUS = 'SET_STATUS'
+const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
 let initState = {
     messagesList: [
@@ -37,7 +39,7 @@ let initState = {
         }
     ],
 }
-let profilePageReducer = (_state = initState, action) => {
+let profilePageReducer = (state = initState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
             let newPost = {
@@ -45,19 +47,22 @@ let profilePageReducer = (_state = initState, action) => {
                 message: action.newMessage,
                 likeCount: 0,
             };
-            // let copyState = {..._state};
-            // copyState.messagesList = [newPost, ..._state.messagesList];
+            // let copyState = {...state};
+            // copyState.messagesList = [newPost, ...state.messagesList];
             // copyState.newMessage = '';
             // return copyState
-            return {..._state, messagesList: [newPost, ..._state.messagesList]};
+            return {...state, messagesList: [newPost, ...state.messagesList]};
         case UPDATE_NEW_MESSAGE:
-            return {..._state, newMessage: action.textPost}
+            return {...state, newMessage: action.textPost}
         case SET_STATUS:
-            return {..._state, status: action.status}
+            return {...state, status: action.status}
         case SET_USER_PROFILE:
-            return {..._state, profile: action.profile}
+            return {...state, profile: action.profile}
+        case SAVE_PHOTO_SUCCESS:
+            debugger
+            return {...state, profile: {...state.profile, photos: action.photos}}
         default:
-            return _state;
+            return state;
     }
 };
 export const addCommentAC = (newMessage) => (
@@ -72,19 +77,38 @@ export const setUserProfile = (profile) => (
 export const setStatus = (status) => (
     {type: SET_STATUS, status}
 );
+export const savePhotoSuccess = (photos) => (
+    {type: SAVE_PHOTO_SUCCESS, photos}
+);
 //Санка!!!!
 export const getUserProfile = (userId) => async (dispatch) => {
-    let response = await usersAPI.getProfile(userId);
+    const response = await usersAPI.getProfile(userId);
     dispatch(setUserProfile(response.data));
 };
 export const getStatus = (userId) => async (dispatch) => {
-    let response = await profileAPI.getStatus(userId);
+    const response = await profileAPI.getStatus(userId);
     dispatch(setStatus(response.data));
 };
 export const updateStatus = (status) => async (dispatch) => {
-    let response = await profileAPI.updateStatus(status);
+    const response = await profileAPI.updateStatus(status);
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status));
+    }
+};
+export const savePhoto = (file) => async (dispatch) => {
+    const response = await profileAPI.savePhoto(file);
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+};
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    } else {
+        dispatch(stopSubmit('edit-profile', {_error: response.data.messages[0]}))
+        return Promise.reject(response.data.messages[0]);
     }
 };
 export default profilePageReducer;

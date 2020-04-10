@@ -1,30 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
-// import {connect} from "react-redux";
 import Preloader from "../../Common/Preloader/Preloader";
-import ProfileStatus from './ProfileStatus'
 import photoMan from '../../../img/images/logoMan.png'
-
-// const PersonalInfo = (props) => {
-//     // let {messagesList,newMessage,friends,personalInfo} = profilePage;
-//     return (
-//         <div>
-//             <p>Name: {props.name}</p>
-//             <p>City: {props.city}</p>
-//             <p>Date of Birth: {props.dateBirth}</p>
-//         </div>
-//     )
-// }
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileDataForm from "./ProfileDataForm";
 
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile, error}) => {
+    let [editMode, setEditMode] = useState(false);
+
+    if (!profile) {
         return <Preloader/>
     }
-    const foto = props.profile.photos.small != null
-        ? props.profile.photos.small
+    const foto = profile.photos.small != null
+        ? profile.photos.small
         : photoMan;
-return (
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0])
+        }
+    }
+    const onSubmit = (formData) => {
+        saveProfile(formData).then(
+            () => {
+                setEditMode(false)
+            });
+    }
+    return (
         <div>
             <div>
                 <img
@@ -32,13 +34,60 @@ return (
                     alt='nature' className={s.imgBack}/>
             </div>
             <div className={s.description}>
-               <div><img className={s.fotoProfile} src={foto}/>
-                   <div>{props.profile.fullName}</div>
-                   <div>{props.profile.lookingForAJob}</div>
-               </div>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <div><img className={s.fotoProfile} src={foto} alt={'profile'}/>
+                    {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+                </div>
+                {editMode ?
+                    <ProfileDataForm
+                        initialValues={profile}
+                        onSubmit={onSubmit}
+                        profile={profile}
+                        error={error}
+                    /> :
+                    <ProfileData
+                        goToEditMode={() => {
+                            setEditMode(true)
+                        }}
+                        isOwner={isOwner}
+                        profile={profile}
+                    />}
+
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
         </div>)
+}
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
+    return <div>
+        {isOwner &&
+        <div>
+            <button onClick={goToEditMode}> on edit</button>
+        </div>
+        }
+        <div>
+            <b>Full name: </b>{profile.fullName}
+        </div>
+        <div>
+            <b>Looking for a job: </b>{profile.lookingForAJob ? "yes" : "no"}
+        </div>
+        {profile.lookingForAJob &&
+        <div>
+            <b>My professional skills: </b>{profile.lookingForAJobDescription}
+        </div>
+        }
+        <div>
+            <b>About me: </b>{profile.aboutMe}
+        </div>
+        <div>
+            <b>Contacts: </b>{Object.keys(profile.contacts).map(key => {
+            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+        })}
+        </div>
+    </div>
+}
+
+
+const Contact = ({contactTitle, contactValue}) => {
+    return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
 }
 
 export default ProfileInfo;
