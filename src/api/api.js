@@ -58,23 +58,18 @@ export const authAPI = {
         return instance
             .get(`auth/me`)
     },
-    login(email, password, rememberMe = false) {
+    login(email, password, rememberMe = false, captcha = null) {
         return instance
-            .post(`auth/login`, {email, password, rememberMe})
+            .post(`auth/login`, {email, password, rememberMe, captcha})
     },
     logout() {
         return instance
             .delete(`auth/login`)
     }
-}
-// const getUsers = (currentPage, pageSize) => {
-//     return axios
-//         .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`,
-//             {
-//                 withCredentials: true,
-//             })
-//         .then(response => {
-//             return response.data
-//         })
-// }
-// export default getUsers
+};
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance
+            .get(`security/get-captcha-url`)
+    }
+};

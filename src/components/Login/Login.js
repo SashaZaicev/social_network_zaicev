@@ -7,7 +7,7 @@ import {LoginReduxForm} from "./LoginForm";
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captchaUrl)
     };
     if (props.isAuth) {
         return <Redirect to={'/profile'}/>
@@ -15,10 +15,11 @@ const Login = (props) => {
     return (
         <div>
             < h1> Login </h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>)
 }
 const mstp = (state) => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 })
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../Common/FormsControls/FormsControls";
+import {createField, Input} from "../Common/FormsControls/FormsControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
 import styleError from "../Common/FormsControls/FormsControls.module.css"
 
 let maxLength30 = maxLengthCreator(30)
 let maxLength16 = maxLengthCreator(16)
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -21,6 +21,10 @@ const LoginForm = ({handleSubmit, error}) => {
                         type={'password'}/></div>
             <div><Field component={Input} name={"rememberMe"} type={"checkbox"}/>remember me
             </div>
+            {captchaUrl && <img src={captchaUrl} alt="captchaUrl"/>}
+            {captchaUrl &&
+            createField("Symbols from image", "captcha", [required], Input, {})}
+
             {error &&
             <div className={`${styleError.formSummaryError}`}>
                 {error}
